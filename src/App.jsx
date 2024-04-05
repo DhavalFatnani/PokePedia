@@ -1,9 +1,14 @@
-import "./App.css";
+import { React, Suspense } from "react";
+import ErrorBoundary from "./ErrorBoundary";
 
 function App() {
   return (
     <>
-      <h1 className="text-center bg-red-500">Hello World</h1>
+      <ErrorBoundary fallback={<div>Something went wrong</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="App"></div>
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 }
